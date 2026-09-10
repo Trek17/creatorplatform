@@ -1,6 +1,7 @@
 package com.trek.creatorplatform.user;
 
 import com.trek.creatorplatform.user.dto.CreateUserRequest;
+import com.trek.creatorplatform.user.dto.UserResponse;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 @Service
@@ -9,10 +10,10 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
 
-    public UserService( UserRepository userRepository,SecurityConfig passwordEncoder)
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder)
     {
         this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder.encoder();
+        this.passwordEncoder = passwordEncoder;
     }
 
     public UserResponse createUser(CreateUserRequest request)

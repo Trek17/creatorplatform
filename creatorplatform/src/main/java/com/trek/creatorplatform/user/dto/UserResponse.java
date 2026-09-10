@@ -1,6 +1,6 @@
-package com.trek.creatorplatform.user;
+package com.trek.creatorplatform.user.dto;
 
-import jakarta.persistence.*;
+import com.trek.creatorplatform.user.Role;
 
 import java.time.LocalDateTime;
 

@@ -1,4 +1,4 @@
-package com.trek.creatorplatform.user;
+package com.trek.creatorplatform.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,8 +19,10 @@ public class SecurityConfig {
     SecurityFilterChain web(HttpSecurity http) throws Exception {
         http.csrf((csrf) -> csrf.disable())
         .authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers("/api/users/**").permitAll()
-                );
+                        .requestMatchers("/api/users/**","/api/contents/**").permitAll()
+//                        .anyRequest().permitAll()
+//                        .anyRequest().authenticated()
+        );
 
         return http.build();
     }
