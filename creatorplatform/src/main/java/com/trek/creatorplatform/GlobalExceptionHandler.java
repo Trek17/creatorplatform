@@ -1,5 +1,6 @@
 package com.trek.creatorplatform;
 
+import com.trek.creatorplatform.content.InvalidUserException;
 import com.trek.creatorplatform.user.DuplicateUserException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
@@ -35,5 +36,12 @@ public class GlobalExceptionHandler {
             e.getDefaultMessage());
         }
         return new ErrorResponse("Validation Failed", errorMap);
+    }
+
+    @ExceptionHandler(InvalidUserException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ErrorResponse handleNoUserFound(InvalidUserException ex)
+    {
+        return new ErrorResponse(ex.getMessage());
     }
 }

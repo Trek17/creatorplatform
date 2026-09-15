@@ -22,7 +22,7 @@ public class Content {
     @JoinColumn(name = "creator_id", nullable = false)
     private User creator;
 
-    public Content(String title, String description, String videoUrl, User creator) {
+    protected Content(String title, String description, String videoUrl, User creator) {
         this.title = title;
         this.description = description;
         this.videoUrl = videoUrl;

@@ -24,9 +24,8 @@ public class ContentService {
         //hardcoding user id for mapping Content
         //to be changed when authentication implemented
         Long userId = 1L;
-        Optional<User> optionalUser = userRepository.findById(userId);
-
-        User user = optionalUser.orElseThrow(() -> new InvalidUserException("User doesn't exist" ));
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new InvalidUserException("User doesn't exist" ));
 
         Content content = new Content(
                 request.getTitle(),

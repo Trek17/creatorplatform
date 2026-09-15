@@ -1,7 +1,5 @@
 package com.trek.creatorplatform.content.dto;
 
-import com.trek.creatorplatform.user.User;
-
 import java.time.LocalDateTime;
 
 public class ContentResponse {
